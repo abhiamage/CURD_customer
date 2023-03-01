@@ -1,5 +1,7 @@
 package com.customer.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +32,12 @@ public class CustomerController {
 	public Customer viewAllCustomeById(@PathVariable int customerId) {
 
 		return customerService.viewById(customerId);
+	}
+	
+	@GetMapping("/getAllCustomers")
+	public List<Customer> getAllCustomers()
+	{
+		return customerService.viewAllCustomer();
 	}
 
 	@DeleteMapping("/deleteCustomerDetailsById/{customerId}")
